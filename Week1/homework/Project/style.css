@@ -1,0 +1,45 @@
+body{
+  background-color: orange;
+  color: orange;
+}
+
+.main{
+  background-color: white;
+  padding: 40px;
+  width: 60%;
+  margin: 40px auto;
+}
+
+.btn{
+  height: 25px;
+  line-height: 25px;
+  padding: 6px;
+  background-color: orange;
+  color: white;
+  border: 1px solid orange;
+  display: inline-block;
+  text-decoration: none;
+}
+.btn:hover {
+	background-color:#72b352;
+}
+.btn:active {
+	position:relative;
+	top:1px;
+}
+
+.right{
+  float: right;
+}
+.quote-area{
+  overflow: auto;
+}
+.Quotation-Marks{
+  font-family: arial;
+  font-size: 5em;
+  line-height: 0.7em;
+  float: left;
+}
+.fa{
+	font-size: 48px;
+}

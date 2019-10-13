@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Cat Walk</title>
+  </head>
+  <body>
+    <img style="position:absolute;" src="http://www.anniemation.com/clip_art/images/cat-walk.gif" />
+  </body>
+	
+<!-- 1. Add a script tag at the bottom of the page, where you'll put all your code. -->
+<script type="text/javascript">
+	
+// 2. Create a variable to store a reference to the img.
+let myCat = document.querySelector("img");
+
+// 3. Change the style of the img to have a "left" of "0px", so that it starts at the left hand of the screens.
+let initialPosition = 0;
+myCat.style.left = `${initialPosition}px`;
+let interval;
+let currentPosition = 0;
+let dancing = true;
+const timeOut = 5000;
+	  
+// 4. Create a function called catWalk() that moves the cat 10 pixels to the right of where it started, by changing the "left" style property.
+const catWalk = () => {
+  currentPosition += 10;
+  myCat.style.left = `${currentPosition}px`;
+
+  // 6. cat reaches the right-hand of the screen, restart them at the left. So they should keep walking forever ever.
+  if (currentPosition > window.innerWidth - myCat.width) {
+    myCat.style.left = `${initialPosition}px`;
+    dancing = true;
+    currentPosition = 0;
+  }
+
+  // 7. When the cat reaches the middle of the screen, replace the img with an image of a cat dancing (use this URL: https://tenor.com/StFI.gif), keep it dancing for 5 seconds, and then replace the img with the original image and have it continue the walk.
+  const midScreen = (window.innerWidth - myCat.width) / 2;
+  if (dancing && currentPosition >= midScreen) {
+    clearInterval(interval);
+    myCat.src = "https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif?itemid=10561424";
+    setTimeout(() => {
+      myCat.src = "http://www.anniemation.com/clip_art/images/cat-walk.gif";
+      dancing = false;
+      
+      interval = setInterval(catWalk, 50);
+    }, timeOut);
+  }
+};
+// 5. Call that function every 50 milliseconds. Your cat should now be moving across the screen from left to right. Hurrah!
+interval = setInterval(catWalk, 50);
+  </script>
+	
+</html>
