@@ -11,7 +11,7 @@ function callback(members) {
   return members.map(member => member.age).reduce((cumulativeAge, memberAge) => cumulativeAge + memberAge, 0);
 }
 
-function agesCombiner(members) {
+function combineAges(members) {
   return `The collective age of the HYF team is: ${callback(members)}`;
 }
-console.log(agesCombiner(hackYourFutureMembers));
+console.log(combineAges(hackYourFutureMembers));
